@@ -1,12 +1,10 @@
-import mongoose from "mongoose";
+import { Schema, model } from "mongoose";
 
-const UserSchema = new mongoose.Schema({
-  username: { type: String, unique: true, required: true},
+const UserSchema = new Schema({
+  username: { type: String, unique: true, required: true },
   email: { type: String, unique: true, required: true },
   password: { type: String, required: true },
-  garden: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Plant' }],
-  },
-);
+  garden: [{ type: Schema.Types.ObjectId, ref: 'Plant' }],
+});
 
-export default mongoose.models.User ||
-  mongoose.model("User", UserSchema);
+export default mongoose.models.User || model("User", UserSchema);
