@@ -1,12 +1,9 @@
-import Head from 'next/head'
-import { Inter } from 'next/font/google'
-import { useRouter } from 'next/router'
-
-
-const inter = Inter({ subsets: ['latin'] })
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Button from "@mui/material/Button";
 
 export default function Home() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <>
@@ -16,10 +13,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <div>
         <h1>Landing Page</h1>
-      </main>
-
+        <Button variant="contained" color="primary">
+          Contained
+        </Button>
+      </div>
     </>
-  )
+  );
 }
