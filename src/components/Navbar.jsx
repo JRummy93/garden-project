@@ -16,14 +16,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-const pages = [
-  "Explore",
-  "My Garden",
-  "Find My Plant",
-  "Contact Us",
-  "About Us",
-];
-
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
@@ -67,7 +59,7 @@ const Navbar = () => {
           >
             LOGO
           </Typography>
-
+          {/* Page Links for mobile screen page */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -97,11 +89,46 @@ const Navbar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu;
+                  router.push("/explore");
+                }}
+              >
+                <Typography textAlign="center">Explore</Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu;
+                  router.push("/my-garden");
+                }}
+              >
+                <Typography textAlign="center">My Garden</Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu;
+                  router.push("/find-my-plant");
+                }}
+              >
+                <Typography textAlign="center">Find My Plant</Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu;
+                  router.push("/contact");
+                }}
+              >
+                <Typography textAlign="center">Contact Us</Typography>
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleCloseNavMenu;
+                  router.push("/about");
+                }}
+              >
+                <Typography textAlign="center">About Us</Typography>
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -123,7 +150,7 @@ const Navbar = () => {
           >
             LOGO
           </Typography>
-
+          {/* Page Links for full screen page */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             <Button
               onClick={() => {
@@ -154,6 +181,7 @@ const Navbar = () => {
             </Button>
             <Button
               onClick={() => {
+                setAnchorElNav(null);
                 router.push("/contact");
               }}
               sx={{ my: 2, color: "white", display: "block" }}
