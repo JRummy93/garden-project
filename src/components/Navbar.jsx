@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   Tooltip,
   MenuItem,
@@ -10,22 +10,24 @@ import {
   IconButton,
   Box,
   AppBar,
-  Stack,
-  Toolbar
+  Toolbar,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const pages = [
-  { label: "Explore", path: "/explore" },
-  { label: "My Garden", path: "/my-garden" },
-  { label: "Find My Plant", path: "/find-my-plant" },
-  { label: "Contact Us", path: "/contact" },
-  { label: "About Us", path: "/about" },
+  "Explore",
+  "My Garden",
+  "Find My Plant",
+  "Contact Us",
+  "About Us",
 ];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
+  const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -47,10 +49,7 @@ const Navbar = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        {" "}
-        {/* This is a Material UI component that sets the max width of the container to 100% of the viewport */}
         <Toolbar disableGutters>
-         
           <Typography
             variant="h6"
             noWrap
@@ -70,8 +69,6 @@ const Navbar = () => {
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            {" "}
-            {/* using display is similar to mediaquery */}
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -100,19 +97,19 @@ const Navbar = () => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map(({ label, path }) => (
-                <MenuItem key={label} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{label}</Typography>
+              {pages.map((page) => (
+                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-         
+
           <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -126,19 +123,54 @@ const Navbar = () => {
           >
             LOGO
           </Typography>
-          <Stack
-            direction="row"
-            display={{ xs: "none", md: "flex" }}
-            alignItems="center"
-            flexGrow={1} // this is saying take up all the space you can
-          >
-            {" "}
-            {/* this is essentially saying hide this on mobile, while the above was show on mobile this mobile menu */}
-            {pages.map(({ label, path }) => (
-              <NavbarItem label={label} path={path} />
-            ))}
-          </Stack>
 
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <Button
+              onClick={() => {
+                setAnchorElNav(null);
+                router.push("/explore");
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Explore
+            </Button>
+            <Button
+              onClick={() => {
+                setAnchorElNav(null);
+                router.push("/my-garden");
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              My Garden
+            </Button>
+            <Button
+              onClick={() => {
+                setAnchorElNav(null);
+                router.push("/find-my-plant");
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Find My Plant
+            </Button>
+            <Button
+              onClick={() => {
+                router.push("/contact");
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              Contact Us
+            </Button>
+            <Button
+              onClick={() => {
+                setAnchorElNav(null);
+                router.push("/about");
+              }}
+              sx={{ my: 2, color: "white", display: "block" }}
+            >
+              About Us
+            </Button>
+          </Box>
+          {/* USER MENU */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
