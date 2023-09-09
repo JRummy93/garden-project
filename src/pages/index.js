@@ -17,25 +17,34 @@ export default function Home() {
       <div>
         <Navbar />
         <Stack className="LandingBody">
-          <div className="LogoText">
-            <img
-              src="/GroWiseLogoCropped.png"
-              alt="GroWise Logo"
-              id="LandingLogo"
-            />
-            <Typography variant="h4" className="LandingText">
-              Grow Wiser in your plant escapades with GroWise!
-            </Typography>
-            <Typography variant="h5" className="LandingText">
-              Your new favorite gardening tool that not only helps you find
-              important information on plants, but also helps remind you when
-              you to need to water them!
+          <div className="row">
+            <div className="LogoText">
+              <img
+                src="/GroWiseLogoCropped.png"
+                alt="GroWise Logo"
+                id="LandingLogo"
+              />
+              <Typography variant="h4" className="LandingText">
+                Grow Wiser in your plant escapades with GroWise!
+              </Typography>
+              <Typography variant="h5" className="LandingText">
+                Your new favorite gardening tool that not only helps you find
+                important information on plants, but also helps remind you when
+                you to need to water them!
+              </Typography>
+            </div>
+            <div className="hangingPlantDiv">
+              {/* <img src="https://netdecor.co.za/cdn/shop/files/HM-69.jpg?v=1687775887" id="hangingPlant"/> */}
+            </div>
+          </div>
+          <div className="databaseDiv">
+            <Typography variant="h2">
+              Have access to a database of HUNDREDS plants!
             </Typography>
           </div>
-
           <img
-            src="https://m.media-amazon.com/images/I/61k+aJlgLSL.jpg"
-            id="LandingHangingPlant"
+            src="https://img.freepik.com/premium-photo/row-potted-plants-with-one-that-says-tropical_920879-157.jpg?w=2000"
+            id="PlantFooterImg"
           />
         </Stack>
       </div>
