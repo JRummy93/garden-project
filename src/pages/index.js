@@ -16,7 +16,10 @@ export default function Home() {
       </Head>
       <div>
         <Navbar />
-        <Stack className="LandingBody"></Stack>
+        <Stack className="LandingBody">
+          <h1 className="LandingTitle">GroWise</h1>
+        </Stack>
+
       </div>
     </>
   );
