@@ -1,3 +1,7 @@
+<style>
+  @import
+  url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+</style>;
 import * as React from "react";
 import {
   Tooltip,
@@ -16,12 +20,11 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
-
 const Navbar = () => {
   const router = useRouter();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -50,15 +53,15 @@ const Navbar = () => {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
+              fontFamily: "Montserrat, sans-serif",
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
-            LOGO
+            GROWISE
           </Typography>
+
           {/* Page Links for mobile screen page */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -141,14 +144,13 @@ const Navbar = () => {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
+              fontFamily: "Montserrat, sans-serif",
               letterSpacing: ".3rem",
-              color: "inherit",
+              color: "white",
               textDecoration: "none",
             }}
           >
-            LOGO
+            GROWISE
           </Typography>
           {/* Page Links for full screen page */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -157,7 +159,11 @@ const Navbar = () => {
                 setAnchorElNav(null);
                 router.push("/explore");
               }}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "white",
+                fontFamily: "Montserrat, sans-serif",
+              }}
             >
               Explore
             </Button>
@@ -166,7 +172,11 @@ const Navbar = () => {
                 setAnchorElNav(null);
                 router.push("/my-garden");
               }}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "white",
+                fontFamily: "Montserrat, sans-serif",
+              }}
             >
               My Garden
             </Button>
@@ -175,7 +185,11 @@ const Navbar = () => {
                 setAnchorElNav(null);
                 router.push("/find-my-plant");
               }}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "white",
+                fontFamily: "Montserrat, sans-serif",
+              }}
             >
               Find My Plant
             </Button>
@@ -184,7 +198,11 @@ const Navbar = () => {
                 setAnchorElNav(null);
                 router.push("/contact");
               }}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "white",
+                fontFamily: "Montserrat, sans-serif",
+              }}
             >
               Contact Us
             </Button>
@@ -193,7 +211,11 @@ const Navbar = () => {
                 setAnchorElNav(null);
                 router.push("/about");
               }}
-              sx={{ my: 2, color: "white", display: "block" }}
+              sx={{
+                my: 2,
+                color: "white",
+                fontFamily: "Montserrat, sans-serif",
+              }}
             >
               About Us
             </Button>
@@ -202,7 +224,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar />
               </IconButton>
             </Tooltip>
             <Menu
