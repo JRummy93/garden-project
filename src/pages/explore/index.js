@@ -35,7 +35,6 @@ export const getStaticProps = async () => {
                 <h2>{data.common_name}</h2>
                 <p>{data.scientific_name}</p>
                 {/* Add more data fields as needed */}
-                <img src={data.image_url ?? ''} />
                 {data.image_url ? (
                   <div>
                     <img src={data.image_url} alt="Default Image" />
