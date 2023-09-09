@@ -17,7 +17,7 @@ export default function Home() {
       <div>
         <Navbar />
         <Stack className="LandingBody">
-        <h1>Landing Page</h1>
+       
         </Stack>
       </div>
     </>
