@@ -3,15 +3,20 @@ import Head from 'next/head';
 import makePerenualAPIRequest from '../api/explore';
 import Navbar from "../../components/Navbar";
 
-  export default function Explore() {
-    const [result, setResult] = useState([]);
+
+export const getStaticProps = async () => {
+  const result = await makePerenualAPIRequest();
+  return { props: {result}}
+}
+  export default function Explore({result}) {
+    // const [result, setResult] = useState([]);
   
-    useEffect(() => {
-      makePerenualAPIRequest().then((responseResult) => {
-        setResult(responseResult);
-      });
-    }, []);
-    console.log(result);
+    // useEffect(() => {
+    //   makePerenualAPIRequest().then((responseResult) => {
+    //     setResult(responseResult);
+    //   });
+    // }, []);
+    // console.log(result.data);
   
     return (
       <>
@@ -30,10 +35,10 @@ import Navbar from "../../components/Navbar";
                 <h2>{data.common_name}</h2>
                 <p>{data.scientific_name}</p>
                 {/* Add more data fields as needed */}
-                <image src={data.default_image?.regular_url ?? ''} />
-                {data.default_image?.regular_url ? (
+                <img src={data.image_url ?? ''} />
+                {data.image_url ? (
                   <div>
-                    <img src={data.default_image.regular_url} alt="Default Image" />
+                    <img src={data.image_url} alt="Default Image" />
                   </div>
                 ) : (
                   <p>No default image available</p>
