@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Button from "@mui/material/Button";
+import { Button, Stack } from "@mui/material";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -16,10 +16,9 @@ export default function Home() {
       </Head>
       <div>
         <Navbar />
-        <h1>Landing Page</h1>
-        <Button variant="contained" color="primary">
-          Contained
-        </Button>
+        <Stack className="LandingBody">
+       
+        </Stack>
       </div>
     </>
   );
