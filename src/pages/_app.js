@@ -1,12 +1,15 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+</style>
 import "@/styles/global.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#3bda73",
-      light: "#62E18F",
-      dark: "#299850",
+      main: "#3BB169",
+      light: "#62C087",
+      dark: "#297B49",
     },
     secondary: {
       main: "#B8F5D1",
@@ -38,10 +41,13 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Montserrat',
+    fontFamily: 'Montserrat, sans-serif',
     fontSize: 16,
     h1: {
       fontSize: '6rem',
+    },
+    button: {
+      fontFamily: 'Montserrat, sans-serif',
     },
   },
 });

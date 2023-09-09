@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   const router = useRouter();
@@ -14,6 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
+        <Navbar />
         <h1>Landing Page</h1>
         <Button variant="contained" color="primary">
           Contained
