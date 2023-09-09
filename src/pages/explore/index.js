@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import makePerenualAPIRequest from '../api/explore';
+import Navbar from "../../components/Navbar";
+
   export default function Explore() {
     const [result, setResult] = useState([]);
   
@@ -20,6 +22,7 @@ import makePerenualAPIRequest from '../api/explore';
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
+        <Navbar />
           <h1>Explore</h1>
           {Array.isArray(result.data) && result.data.length > 0 ? (
             result.data.map((data) => (
