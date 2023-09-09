@@ -16,9 +16,7 @@ export default function Home() {
       </Head>
       <div>
         <Navbar />
-        <Stack className="LandingBody">
-       
-        </Stack>
+        <Stack className="LandingBody"></Stack>
       </div>
     </>
   );
