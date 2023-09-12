@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography, Grid } from "@mui/material";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -14,10 +14,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <Navbar />
-        <Stack className="LandingBody">
-          <div className="row">
+      <Navbar />
+      <Stack className="gridWrapper">
+        <Grid container spacing={4} className="LandingGrid">
+          <Grid item xs={12} lg={8}>
             <div className="LogoText">
               <img
                 src="/GroWiseLogoCropped.png"
@@ -33,21 +33,30 @@ export default function Home() {
                 you to need to water them!
               </Typography>
             </div>
-            <div className="hangingPlantDiv">
-              {/* <img src="https://netdecor.co.za/cdn/shop/files/HM-69.jpg?v=1687775887" id="hangingPlant"/> */}
+          </Grid>
+          <Grid item xs={12} lg={4}>
+            <img
+              src="https://images.unsplash.com/photo-1587334274328-64186a80aeee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlZW4lMjBsZWFmfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+              id="sideImg"
+              alt="leaf"
+            />
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <img
+              src="https://images.unsplash.com/photo-1609142621730-db3293839541?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHxwbGFudHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+              className="landingPlant"
+              alt="potted plant"
+            />
+          </Grid>
+          <Grid item xs={12} lg={8}>
+            <div className="databaseDiv">
+              <Typography variant="h2">
+                Have access to a database of HUNDREDS of plants!
+              </Typography>
             </div>
-          </div>
-          <div className="databaseDiv">
-            <Typography variant="h2">
-              Have access to a database of HUNDREDS plants!
-            </Typography>
-          </div>
-          <img
-            src="https://img.freepik.com/premium-photo/row-potted-plants-with-one-that-says-tropical_920879-157.jpg?w=2000"
-            id="PlantFooterImg"
-          />
-        </Stack>
-      </div>
+          </Grid>
+        </Grid>
+      </Stack>
     </>
   );
 }
