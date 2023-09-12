@@ -1,3 +1,44 @@
-.LandingBody {
-    margin: 50px 100px;
+/* Landing Page */
+.gridWrapper {
+  margin: 100px 200px;
 }
+.LogoText {
+  width: 750px;
+  background-color: rgb(239, 240, 240);
+  padding: 50px;
+  border-radius: 40px;
+}
+#sideImg {
+  width: 500px;
+}
+.databaseDiv {
+  border-radius: 40px;
+  background-image: url(https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80);
+  background-size: cover;
+  width: 500px;
+  height: 600px;
+  text-align: center;
+  padding: 50px;
+  margin: 50px;
+  color: white;
+  text-shadow: 4px 4px 4px #000000;
+  margin-left: auto;
+}
+.landingPlant {
+  border-radius: 40px;
+}
+#footerPlant {
+  width: 100%;
+ 
+  /* border: black solid 1px; */
+}
+
+/* My Garden */
+
+/* Find My Plant */
+
+/* Explore Page */
+
+/* Contact Page */
+
+/* About Us */

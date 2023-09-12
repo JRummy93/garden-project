@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Button, Stack } from "@mui/material";
+import { Button, Stack, Typography, Grid } from "@mui/material";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -14,12 +14,49 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
-        <Navbar />
-        <Stack className="LandingBody">
-       
-        </Stack>
-      </div>
+      <Navbar />
+      <Stack className="gridWrapper">
+        <Grid container spacing={4} className="LandingGrid">
+          <Grid item xs={12} lg={8}>
+            <div className="LogoText">
+              <img
+                src="/GroWiseLogoCropped.png"
+                alt="GroWise Logo"
+                id="LandingLogo"
+              />
+              <Typography variant="h4" className="LandingText">
+                Grow Wiser in your plant escapades with GroWise!
+              </Typography>
+              <Typography variant="h5" className="LandingText">
+                Your new favorite gardening tool that not only helps you find
+                important information on plants, but also helps remind you when
+                you to need to water them!
+              </Typography>
+            </div>
+          </Grid>
+          <Grid item xs={12} lg={4}>
+            <img
+              src="https://images.unsplash.com/photo-1587334274328-64186a80aeee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlZW4lMjBsZWFmfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+              id="sideImg"
+              alt="leaf"
+            />
+          </Grid>
+          <Grid item xs={12} lg={3}>
+            <img
+              src="https://images.unsplash.com/photo-1609142621730-db3293839541?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHxwbGFudHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+              className="landingPlant"
+              alt="potted plant"
+            />
+          </Grid>
+          <Grid item xs={12} lg={8}>
+            <div className="databaseDiv">
+              <Typography variant="h2">
+                Have access to a database of HUNDREDS of plants!
+              </Typography>
+            </div>
+          </Grid>
+        </Grid>
+      </Stack>
     </>
   );
 }
