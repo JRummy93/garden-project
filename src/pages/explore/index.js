@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import makePerenualAPIRequest from '../api/explore';
+import PlantSearch from '@/components/PlantSearch';
   export default function Explore() {
     const [result, setResult] = useState([]);
   
@@ -21,6 +22,7 @@ import makePerenualAPIRequest from '../api/explore';
         </Head>
         <main>
           <h1>Explore</h1>
+          <PlantSearch />
           {Array.isArray(result.data) && result.data.length > 0 ? (
             result.data.map((data) => (
               <div key={data.id}>
