@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
 import makePerenualAPIRequest from '../api/explore';
+import PlantSearch from '@/components/PlantSearch';
 import Navbar from "../../components/Navbar";
 
 
@@ -29,6 +30,7 @@ export const getStaticProps = async () => {
         <main>
         <Navbar />
           <h1>Explore</h1>
+          <PlantSearch />
           {Array.isArray(result.data) && result.data.length > 0 ? (
             result.data.map((data) => (
               <div key={data.id}>
