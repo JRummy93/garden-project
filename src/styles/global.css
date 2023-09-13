@@ -1,7 +1,8 @@
 /* Landing Page */
-.gridWrapper {
-  margin: 100px 200px;
-}
+
+/* .landingGrid {
+  justify-content: center;
+} */
 .LogoText {
   width: 750px;
   background-color: rgb(239, 240, 240);
@@ -19,10 +20,8 @@
   height: 600px;
   text-align: center;
   padding: 50px;
-  margin: 50px;
   color: white;
   text-shadow: 4px 4px 4px #000000;
-  margin-left: auto;
 }
 .landingPlant {
   border-radius: 40px;
