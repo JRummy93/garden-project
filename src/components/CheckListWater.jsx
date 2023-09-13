@@ -39,7 +39,7 @@ export default function WaterRequirementsCheckList() {
 
   return (
     <div>
-      <FormControl sx={{ m: 1, width: 125 }}>
+      <FormControl sx={{ m: 1, width: '160px' }}>
         <InputLabel id="WaterRequired">Water Required</InputLabel>
         <Select
           labelId="WaterRequiredLabel"
