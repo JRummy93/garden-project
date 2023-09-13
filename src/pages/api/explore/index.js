@@ -2,10 +2,10 @@ const axios = require('axios');
 
 async function makePerenualAPIRequest(pageCount, key, ) {
   try {
-    const response = await axios.get('https://perenual.com/api/species-list', {
+    const response = await axios.get('https://trefle.io/api/v1/plants', {
       params: {
         page: pageCount,
-        key: 'sk-dQpv64f3d160dd5ce2062'
+        token: 'u07N7SHuaI0uvGrVLkiI2zWl7PLb6ZgwGAfYE9SySnA'
       }
     });
     
