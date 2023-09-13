@@ -1,10 +1,10 @@
 const axios = require('axios');
 
-async function makePerenualAPIRequest() {
+async function makePerenualAPIRequest(pageCount, key, ) {
   try {
     const response = await axios.get('https://perenual.com/api/species-list', {
       params: {
-        page: 1,
+        page: pageCount,
         key: 'sk-dQpv64f3d160dd5ce2062'
       }
     });
