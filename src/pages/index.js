@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Button, Stack, Typography, Grid } from "@mui/material";
+import { Button, Stack, Typography, Grid, Box } from "@mui/material";
 import Navbar from "../components/Navbar";
 
 export default function Home() {
@@ -16,6 +16,7 @@ export default function Home() {
       </Head>
       <Navbar />
       <br />
+      <Box>
       <Grid
         container
         spacing={2}
@@ -61,8 +62,7 @@ export default function Home() {
           </div>
         </Grid>
       </Grid>
-
-    
+    </Box>
     </>
   );
 }
