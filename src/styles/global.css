@@ -1,8 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Landing Page */
 
-/* .landingGrid {
-  justify-content: center;
-} */
 .LogoText {
   width: 750px;
   background-color: rgb(239, 240, 240);
