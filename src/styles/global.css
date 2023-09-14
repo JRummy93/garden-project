@@ -37,5 +37,13 @@
 /* Explore Page */
 
 /* Contact Page */
+.contact {
+  margin: 20px 100px;
+}
+.textFieldStack {
+  width: 900px;
+  height: 450px;
+  margin: auto;
+}
 
 /* About Us */
