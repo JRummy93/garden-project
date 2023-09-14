@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 const Contact = () => {
     const router = useRouter();
@@ -8,6 +9,7 @@ const Contact = () => {
         <>
         <Navbar />
         <h1>Contact</h1>
+        <Footer />
         </>
     );
 }

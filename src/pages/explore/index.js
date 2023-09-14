@@ -3,6 +3,7 @@ import Head from 'next/head';
 import makePerenualAPIRequest from '../api/explore';
 import PlantSearch from '@/components/PlantSearch';
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
 
 export const getStaticProps = async () => {
@@ -50,6 +51,7 @@ export const getStaticProps = async () => {
             <p>No data available</p>
           )}
         </main>
+        <Footer />
       </>
     );
   };
