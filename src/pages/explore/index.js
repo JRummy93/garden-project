@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import makePerenualAPIRequest from '../api/explore';
+import makeTrefleAPIRequest from '../api/explore';
 import PlantSearch from '@/components/PlantSearch';
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
 
-export const getStaticProps = async () => {
-  const result = await makePerenualAPIRequest();
-  return { props: {result}}
-}
-  export default function Explore({result}) {
-    // const [result, setResult] = useState([]);
+// export const getStaticProps = async () => {
+//   const result = await makePerenualAPIRequest();
+//   return { props: {result}}
+// }
+  export default function Explore() {
+    const [result, setResult] = useState([]);
   
-    // useEffect(() => {
-    //   makePerenualAPIRequest().then((responseResult) => {
-    //     setResult(responseResult);
-    //   });
-    // }, []);
-    // console.log(result.data);
+    useEffect(() => {
+      makeTrefleAPIRequest().then((responseResult) => {
+        setResult(responseResult);
+      });
+    }, []);
+    const response = JSON.stringify(result.text);
+    console.log(response);
   
     return (
       <>
@@ -32,8 +33,8 @@ export const getStaticProps = async () => {
         <Navbar />
           <h1>Explore</h1>
           <PlantSearch />
-          {Array.isArray(result.data) && result.data.length > 0 ? (
-            result.data.map((data) => (
+          {Array.isArray(response) && response.length > 0 ? (
+            result.map((data) => (
               <div key={data.id}>
                 <h2>{data.common_name}</h2>
                 <p>{data.scientific_name}</p>
