@@ -1,25 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import makeTrefleAPIRequest from '../api/explore';
 import PlantSearch from '@/components/PlantSearch';
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import FetchTrefle from '../api/explore/index';
 
-
-// export const getStaticProps = async () => {
-//   const result = await makePerenualAPIRequest();
-//   return { props: {result}}
-// }
-  export default function Explore() {
+export default function Explore() {
     const [result, setResult] = useState([]);
   
     useEffect(() => {
-      makeTrefleAPIRequest().then((responseResult) => {
+      FetchTrefle().then((responseResult) => {
         setResult(responseResult);
       });
     }, []);
-    const response = JSON.stringify(result.text);
-    console.log(response);
+    
+    
   
     return (
       <>
@@ -33,8 +28,8 @@ import Footer from "../../components/Footer";
         <Navbar />
           <h1>Explore</h1>
           <PlantSearch />
-          {Array.isArray(response) && response.length > 0 ? (
-            result.map((data) => (
+          {Array.isArray(result.data) && result.data.length > 0 ? (
+            result.data.map((data) => (
               <div key={data.id}>
                 <h2>{data.common_name}</h2>
                 <p>{data.scientific_name}</p>
