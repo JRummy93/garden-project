@@ -1,24 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import Head from 'next/head';
-import makePerenualAPIRequest from '../api/explore';
 import PlantSearch from '@/components/PlantSearch';
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import FetchTrefle from '../api/explore/index';
 
-
-export const getStaticProps = async () => {
-  const result = await makePerenualAPIRequest();
-  return { props: {result}}
-}
-  export default function Explore({result}) {
-    // const [result, setResult] = useState([]);
+export default function Explore() {
+    const [result, setResult] = useState([]);
   
-    // useEffect(() => {
-    //   makePerenualAPIRequest().then((responseResult) => {
-    //     setResult(responseResult);
-    //   });
-    // }, []);
-    // console.log(result.data);
+    useEffect(() => {
+      FetchTrefle().then((responseResult) => {
+        setResult(responseResult);
+      });
+    }, []);
+    
+    
   
     return (
       <>

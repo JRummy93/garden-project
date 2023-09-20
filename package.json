@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "proxy": "node src/server/TrefleAPI.js",
+    "dev-proxy": "concurrently \"npm run proxy\" \"npm run dev\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -14,11 +16,14 @@
     "@mui/icons-material": "^5.14.8",
     "@mui/material": "^5.14.8",
     "axios": "^1.5.0",
+    "concurrently": "^8.2.1",
     "cors": "^2.8.5",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
+    "express": "^4.18.2",
     "mongoose": "^7.5.0",
     "next": "13.4.19",
+    "node-fetch": "^3.3.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   }

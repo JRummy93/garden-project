@@ -1,22 +1,12 @@
-const axios = require('axios');
-
-async function makePerenualAPIRequest(pageCount, key, ) {
+async function FetchTrefle() {
   try {
-    const response = await axios.get('https://trefle.io/api/v1/plants', {
-      params: {
-        page: pageCount,
-        token: 'u07N7SHuaI0uvGrVLkiI2zWl7PLb6ZgwGAfYE9SySnA'
-      }
-    });
-    
-    return response.data;
-    
+    const response = await fetch("http://localhost:3000");
+    const result = await response.json();
+    return result;
   } catch (error) {
-    console.error('Error making API request:', error);
+    console.error("Error fetching data:", error);
     throw error;
   }
 }
 
-
-export default makePerenualAPIRequest;
-
+export default FetchTrefle;
