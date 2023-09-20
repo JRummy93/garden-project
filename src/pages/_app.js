@@ -57,7 +57,14 @@ const theme = createTheme({
 
 export default function App({ Component, pageProps }) {
   return (
-    <ClerkProvider {...pageProps}>
+    <ClerkProvider
+      appearance={{
+        variables: {
+          colorPrimary: "#3BB169",
+        },
+      }}
+      {...pageProps}
+    >
       <ThemeProvider theme={theme}>
         <Component {...pageProps} />
       </ThemeProvider>
