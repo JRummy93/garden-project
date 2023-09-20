@@ -174,6 +174,7 @@ const Navbar = () => {
             >
               Explore
             </Button>
+            <SignedIn> 
             <Button
               onClick={() => {
                 setAnchorElNav(null);
@@ -187,6 +188,7 @@ const Navbar = () => {
             >
               My Garden
             </Button>
+            
             <Button
               onClick={() => {
                 setAnchorElNav(null);
@@ -200,6 +202,7 @@ const Navbar = () => {
             >
               Find My Plant
             </Button>
+            </SignedIn>
             <Button
               onClick={() => {
                 setAnchorElNav(null);

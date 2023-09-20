@@ -16,6 +16,7 @@ const MyGarden = () => {
     }
   }, [user, router]);
 
+  console.log(user);
   return (
     <>
       <Navbar />
