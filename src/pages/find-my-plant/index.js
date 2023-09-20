@@ -19,7 +19,7 @@ const FindMyPlant = () => {
     return (
       <>
         <Navbar />
-        <Stack alignItems="center" spacing={4}>
+        <Stack alignItems="center" spacing={4} p={5}>
           <h1>Find My Plant</h1>
           {user ? (
             <Typography variant="h5">
