@@ -19,7 +19,7 @@ const MyGarden = () => {
   return (
     <>
       <Navbar />
-      <Stack alignItems="center" spacing={4}>
+      <Stack alignItems="center" spacing={4} p={5}>
         <h1>My Garden</h1>
         {user ? (
           <Typography variant="h5">
