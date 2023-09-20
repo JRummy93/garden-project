@@ -10,9 +10,11 @@ const SignUpPage = () => {
   return (
     <>
       <Navbar />
-      <Stack  alignItems="center" spacing={4}>
-      <Typography variant="h3" color={'primary.dark'}>Sign-Up</Typography>
-      <SignUp />
+      <Stack alignItems="center" spacing={4}>
+        <Typography variant="h3" color={"primary.dark"}>
+          Sign-Up
+        </Typography>
+        <SignUp />
       </Stack>
       <Footer />
     </>
