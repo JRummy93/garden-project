@@ -3,11 +3,10 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { useUser, useAuth } from "@clerk/nextjs";
 import { Stack, Typography } from "@mui/material";
-import { use, useEffect } from "react";
+import { useEffect } from "react";
 
 const MyGarden = () => {
   const { user } = useUser();
-  const { userId, isLoaded } = useAuth();
   const router = useRouter();
 
 
