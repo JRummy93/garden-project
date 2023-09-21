@@ -3,6 +3,7 @@
 </style>
 import "@/styles/global.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const theme = createTheme({
   palette: {
@@ -54,8 +55,10 @@ const theme = createTheme({
 
 export default function App({ Component, pageProps }) {
   return (
+    <ClerkProvider {...pageProps}>
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />
     </ThemeProvider>
+    </ClerkProvider>
   );
 }
