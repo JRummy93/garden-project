@@ -18,52 +18,69 @@ export default function Home() {
       <Navbar />
       <br />
       <Box>
-      <Grid
-        container
-        spacing={2}
-        justifyContent="center"
-        className="LandingGrid"
-      >
-        <Grid item md={12} lg={6}>
-          <div className="LogoText">
+        <Grid
+          container
+          spacing={4}
+          justifyContent="center"
+          className="LandingGrid"
+        >
+          <Grid item md={12} lg={6}>
+            <div className="LogoText">
+              <img
+                src="/GroWiseLogoCropped.png"
+                alt="GroWise Logo"
+                id="LandingLogo"
+              />
+              <Typography variant="h4" className="LandingText">
+                Grow Wiser in your plant escapades with GroWise!
+              </Typography>
+              <Typography variant="h5" className="LandingText">
+                Your new favorite gardening tool that not only helps you find
+                important information on plants, but also helps remind you when
+                you to need to water them!
+              </Typography>
+            </div>
+          </Grid>
+          <Grid item md={12} lg={4}>
             <img
-              src="/GroWiseLogoCropped.png"
-              alt="GroWise Logo"
-              id="LandingLogo"
+              src="https://images.unsplash.com/photo-1587334274328-64186a80aeee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlZW4lMjBsZWFmfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
+              id="sideImg"
+              alt="leaf"
             />
-            <Typography variant="h4" className="LandingText">
-              Grow Wiser in your plant escapades with GroWise!
-            </Typography>
-            <Typography variant="h5" className="LandingText">
-              Your new favorite gardening tool that not only helps you find
-              important information on plants, but also helps remind you when
-              you to need to water them!
-            </Typography>
-          </div>
+          </Grid>
+          <Grid item md={12} lg={7}>
+            <div className="signUpDiv">
+              <Typography variant="h5">
+                Like what you see, but want more? Make an account to be able to
+                save your plants in your own personal Garden section, Or be able to find plants by image.
+              </Typography>
+
+              <Button id="landingSignUpBtn" sx={{
+                my: 2,
+                color: "white",
+                fontFamily: "Montserrat, sans-serif",
+              }}>
+                Sign Up
+              </Button>
+
+            </div>
+          </Grid>
+          <Grid item md={12} lg={6}>
+            <img
+              src="https://images.unsplash.com/photo-1609142621730-db3293839541?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHxwbGFudHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+              className="landingPlant"
+              alt="potted plant"
+            />
+          </Grid>
+          <Grid item md={12} lg={4}>
+            <div className="databaseDiv">
+              <Typography variant="h2">
+                Have access to a database of HUNDREDS of plants!
+              </Typography>
+            </div>
+          </Grid>
         </Grid>
-        <Grid item md={12} lg={4}>
-          <img
-            src="https://images.unsplash.com/photo-1587334274328-64186a80aeee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlZW4lMjBsZWFmfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
-            id="sideImg"
-            alt="leaf"
-          />
-        </Grid>
-        <Grid item md={12} lg={6}>
-          <img
-            src="https://images.unsplash.com/photo-1609142621730-db3293839541?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHxwbGFudHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-            className="landingPlant"
-            alt="potted plant"
-          />
-        </Grid>
-        <Grid item md={12} lg={4}>
-          <div className="databaseDiv">
-            <Typography variant="h2">
-              Have access to a database of HUNDREDS of plants!
-            </Typography>
-          </div>
-        </Grid>
-      </Grid>
-    </Box>
+      </Box>
       <Footer />
     </>
   );
