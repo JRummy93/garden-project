@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import FetchTrefle from "../api/explore/index";
 import PlantCard from "@/components/PlantCard";
-import { Stack, Grid } from "@mui/material";
+import { Stack, Grid, Typography } from "@mui/material";
 
 export default function Explore() {
   const [result, setResult] = useState([]);
@@ -27,7 +27,7 @@ export default function Explore() {
       <main>
         <Navbar />
         <div className="exploreBody">
-          <h1>Explore</h1>
+          <Typography variant="h2" color={"primary.dark"}>Explore</Typography>
           <PlantSearch />
           <Grid
             container
@@ -48,7 +48,7 @@ export default function Explore() {
                 </Grid>
               ))
             ) : (
-              <p>No data available</p>
+              <Typography variant="h3" color={"primary.dark"}>Loading...</Typography>
             )}
           </Grid>
         </div>
