@@ -10,6 +10,7 @@ export default authMiddleware({
     "/sign-up",
     "/my-garden",
     "/find-my-plant",
+    "/explore/[id]",
   ],
 });
 
