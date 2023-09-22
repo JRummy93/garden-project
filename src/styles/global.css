@@ -25,10 +25,9 @@
   padding: 50px;
   margin: 20px;
 }
-#landingSignUpBtn:hover{
-  background-color: #297B49;
+#landingSignUpBtn:hover {
+  background-color: #297b49;
   transition: 1000ms;
-
 }
 .databaseDiv {
   border-radius: 40px;
@@ -53,10 +52,10 @@
 .exploreBody {
   text-align: center;
   padding: 50px;
-  margin: 20px 100px;
+  margin: 0px 100px;
 }
 .exploreGrid {
-  margin-top: 50px ;
+  margin-top: 50px;
 }
 
 /* Contact Page */
