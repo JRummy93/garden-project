@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Typography } from "@mui/material";
+import { Typography, Stack } from "@mui/material";
 import {
   ClerkProvider,
   SignedIn,
