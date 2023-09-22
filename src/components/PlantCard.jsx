@@ -25,7 +25,11 @@ const PlantCard = ({ common_name, scientific_name, image_url }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary">
+        <Button className="addBtn" size="small" sx={{
+                padding: "0.5rem 1rem",
+                fontFamily: "Montserrat, sans-serif",
+                 color: "primary"
+              }}>
           Add to My Garden
         </Button>
       </CardActions>

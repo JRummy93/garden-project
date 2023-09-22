@@ -57,7 +57,10 @@
 .exploreGrid {
   margin-top: 50px;
 }
-
+.addBtn:hover {
+  background-color: #ddf3e6;
+  transition: 900ms;
+}
 /* Contact Page */
 
 /* About Us */
