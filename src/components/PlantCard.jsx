@@ -7,7 +7,7 @@ import { Button, CardActionArea, CardActions } from "@mui/material";
 
 const PlantCard = ({ common_name, scientific_name, image_url }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 500, maxHeight: 500 }}>
       <CardActionArea>
         <CardMedia
           component="img"

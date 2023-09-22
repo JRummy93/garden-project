@@ -50,6 +50,14 @@
 /* Find My Plant */
 
 /* Explore Page */
+.exploreBody {
+  text-align: center;
+  padding: 50px;
+  margin: 20px 100px;
+}
+.exploreGrid {
+  margin-top: 50px ;
+}
 
 /* Contact Page */
 
