@@ -4,6 +4,7 @@ import PlantSearch from '@/components/PlantSearch';
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import FetchTrefle from '../api/explore/index';
+import PlantCard from '@/components/PlantCard';
 
 export default function Explore() {
     const [result, setResult] = useState([]);
@@ -30,18 +31,11 @@ export default function Explore() {
           <PlantSearch />
           {Array.isArray(result.data) && result.data.length > 0 ? (
             result.data.map((data) => (
-              <div key={data.id}>
-                <h2>{data.common_name}</h2>
-                <p>{data.scientific_name}</p>
-                {/* Add more data fields as needed */}
-                {data.image_url ? (
-                  <div>
-                    <img src={data.image_url} alt="Default Image" />
-                  </div>
-                ) : (
-                  <p>No default image available</p>
-                )}
-              </div>
+              <PlantCard
+              common_name={data.common_name}
+              scientific_name={data.scientific_name}
+              image_url={data.image_url}
+            />
             ))
           ) : (
             <p>No data available</p>
