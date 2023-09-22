@@ -17,7 +17,7 @@ const SignUpPage = () => {
   return (
     <>
       <Navbar />
-      <Stack justifyContent="center" alignItems="center" spacing={2}>
+      <Stack justifyContent="center" alignItems="center" spacing={4}>
         <Typography variant="h4" color={"primary.dark"}>
           Sign-Up
         </Typography>
