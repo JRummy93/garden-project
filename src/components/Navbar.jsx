@@ -19,6 +19,13 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import {
+  UserButton,
+  SignInButton,
+  SignOutButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/nextjs";
 
 const Navbar = () => {
   const router = useRouter();
@@ -167,6 +174,7 @@ const Navbar = () => {
             >
               Explore
             </Button>
+            <SignedIn>
             <Button
               onClick={() => {
                 setAnchorElNav(null);
@@ -193,6 +201,7 @@ const Navbar = () => {
             >
               Find My Plant
             </Button>
+            </SignedIn>
             <Button
               onClick={() => {
                 setAnchorElNav(null);
@@ -222,33 +231,37 @@ const Navbar = () => {
           </Box>
           {/* USER MENU */}
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <SignedIn>
+              <SignOutButton>
+                <Button
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    fontFamily: "Montserrat, sans-serif",
+                    marginRight: "20px",
+                  }}
+                >
+                  Sign-Out
+                </Button>
+              </SignOutButton>
+            </SignedIn>
+            <SignedOut>
+              <SignInButton mode="modal">
+                <Button
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    fontFamily: "Montserrat, sans-serif",
+                    marginRight: "20px",
+                  }}
+                >
+                  Sign-In
+                </Button>
+              </SignInButton>
+            </SignedOut>
+          </Box>
+          <Box sx={{ flexGrow: 0 }}>
+            <UserButton />
           </Box>
         </Toolbar>
       </Container>

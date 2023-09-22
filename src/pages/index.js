@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { Button, Stack, Typography, Grid, Box } from "@mui/material";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { SignUpButton } from "@clerk/nextjs";
 
 export default function Home() {
   const router = useRouter();
@@ -52,17 +53,21 @@ export default function Home() {
             <div className="signUpDiv">
               <Typography variant="h5">
                 Like what you see, but want more? Make an account to be able to
-                save your plants in your own personal Garden section, Or be able to find plants by image.
+                save your plants in your own personal Garden section, Or be able
+                to find plants by image.
               </Typography>
-
-              <Button id="landingSignUpBtn" sx={{
-                my: 2,
-                color: "white",
-                fontFamily: "Montserrat, sans-serif",
-              }}>
-                Sign Up
-              </Button>
-
+              <SignUpButton mode="modal">
+                <Button
+                  id="landingSignUpBtn"
+                  sx={{
+                    my: 2,
+                    color: "white",
+                    fontFamily: "Montserrat, sans-serif",
+                  }}
+                >
+                  Sign Up
+                </Button>
+              </SignUpButton>
             </div>
           </Grid>
           <Grid item md={12} lg={6}>
