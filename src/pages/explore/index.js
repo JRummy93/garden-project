@@ -44,6 +44,7 @@ export default function Explore() {
                     common_name={data.common_name}
                     scientific_name={data.scientific_name}
                     image_url={data.image_url}
+                    id={data.id}
                   />
                 </Grid>
               ))

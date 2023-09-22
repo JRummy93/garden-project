@@ -5,9 +5,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 
-const PlantCard = ({ common_name, scientific_name, image_url }) => {
+const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
   return (
-    <Card sx={{ maxWidth: 500, maxHeight: 500 }}>
+    <Card sx={{ maxWidth: 500, maxHeight: 500 }} >
       <CardActionArea>
         <CardMedia
           component="img"
@@ -18,6 +18,7 @@ const PlantCard = ({ common_name, scientific_name, image_url }) => {
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
             {common_name}
+            {id}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {scientific_name}
