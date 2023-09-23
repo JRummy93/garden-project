@@ -3,21 +3,17 @@ import Head from 'next/head';
 import PlantSearch from '@/components/PlantSearch';
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import FetchTrefle from '../api/explore/index';
 
 export default function Explore() {
     const [result, setResult] = useState([]);
   
     useEffect(() => {
-      FetchTrefle().then((responseResult) => {
+      fetch("/api/explore")
+      .then(res => res.json())
+      .then((responseResult) => {
         setResult(responseResult);
       });
     }, []);
-    
-    const handleSearch = (searchForm) => {
-      
-    }
-    
   
     return (
       <>
@@ -30,7 +26,7 @@ export default function Explore() {
         <main>
         <Navbar />
           <h1>Explore</h1>
-          <PlantSearch onSearch={handleSearch}/>
+          <PlantSearch/>
           {Array.isArray(result.data) && result.data.length > 0 ? (
             result.data.map((data) => (
               <div key={data.id}>

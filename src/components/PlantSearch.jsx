@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { Button, Container, FormControlLabel, Switch, TextField } from '@mui/material';
 import WaterRequirementsCheckList from './CheckListWater';
 import LightRequiredCheckList from './CheckListLight';
-import trefleSearch from '@/server/TrefleAPI.mjs';
-import FetchTrefle from '@/pages/api/explore';
 
 const PlantSearch = () => {
   const [searchForm, setSearchForm] = useState({
@@ -23,10 +21,6 @@ const PlantSearch = () => {
   };
 
   const handleSubmit = () => {
-    // Here you can submit the current state of the form
-    console.log(searchForm);
-    trefleSearch();
-    FetchTrefle();
 
   };
   
@@ -48,8 +42,3 @@ const PlantSearch = () => {
   );
 };
 export default PlantSearch;
-
-module.exports = {
-  trefleSearch,
-  PlantSearch,  
-};
