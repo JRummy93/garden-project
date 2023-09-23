@@ -14,6 +14,9 @@ export default function Explore() {
       });
     }, []);
     
+    const handleSearch = (searchForm) => {
+      
+    }
     
   
     return (
@@ -27,7 +30,7 @@ export default function Explore() {
         <main>
         <Navbar />
           <h1>Explore</h1>
-          <PlantSearch />
+          <PlantSearch onSearch={handleSearch}/>
           {Array.isArray(result.data) && result.data.length > 0 ? (
             result.data.map((data) => (
               <div key={data.id}>

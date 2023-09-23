@@ -19,10 +19,10 @@ const PlantSearch = () => {
     }));
   };
 
-  // const handleSubmit = () => {
-  //   // Here you can submit the current state of the form
-  //   console.log(searchForm);
-  // };
+  const handleSubmit = () => {
+    // Here you can submit the current state of the form
+    console.log(searchForm);
+  };
   
   return (
     <Container style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'column' }}>
@@ -43,7 +43,3 @@ const PlantSearch = () => {
 };
 export default PlantSearch;
 
-export const handleSubmit = (searchForm) => {
-  // Here you can submit the current state of the form
-  console.log(searchForm);
-};
