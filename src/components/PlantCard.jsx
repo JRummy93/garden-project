@@ -3,10 +3,10 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { Button, CardActionArea, CardActions, } from "@mui/material";
+import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useRouter } from "next/router";
 
-import { useAuth, SignIn, SignInButton } from "@clerk/nextjs";
+import { useAuth, SignIn, SignInButton, SignUpButton } from "@clerk/nextjs";
 
 const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
   const router = useRouter();
@@ -14,8 +14,12 @@ const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
   const { userId } = useAuth();
 
   return (
-    <Card sx={{ maxWidth: 500, maxHeight: 500 }} key={id} >
-      <CardActionArea onClick={() => {router.push(`/explore/${id}`)}}>
+    <Card sx={{ maxWidth: 500, maxHeight: 500 }} key={id}>
+      <CardActionArea
+        onClick={() => {
+          router.push(`/explore/${id}`);
+        }}
+      >
         <CardMedia
           component="img"
           height="300"
@@ -24,8 +28,7 @@ const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {common_name} 
-            
+            {common_name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {scientific_name} ID: {id}
@@ -33,35 +36,34 @@ const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-      {userId ? (
-    <Button
-      className="addBtn"
-      size="small"
-      sx={{
-        padding: "0.5rem 1rem",
-        fontFamily: "Montserrat, sans-serif",
-        color: "primary"
-      }}
-    >
-      Add to My Garden
-    </Button>
-  ) : (
-    <SignInButton mode="modal">
-      <Button
-      className="addBtn"
-      size="small"
-      sx={{
-        padding: "0.5rem 1rem",
-        fontFamily: "Montserrat, sans-serif",
-        color: "primary"
-      }}
-    >
-      Add to My Garden
-    </Button>
-    </SignInButton>
-  )}
+        {userId ? (
+          <Button
+            className="addBtn"
+            size="small"
+            sx={{
+              padding: "0.5rem 1rem",
+              fontFamily: "Montserrat, sans-serif",
+              color: "primary",
+            }}
+          >
+            Add to My Garden
+          </Button>
+        ) : (
+          <SignUpButton mode="modal">
+            <Button
+              className="addBtn"
+              size="small"
+              sx={{
+                padding: "0.5rem 1rem",
+                fontFamily: "Montserrat, sans-serif",
+                color: "primary",
+              }}
+            >
+              Add to My Garden
+            </Button>
+          </SignUpButton>
+        )}
       </CardActions>
-      
     </Card>
   );
 };
