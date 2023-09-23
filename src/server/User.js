@@ -8,3 +8,5 @@ const UserSchema = new Schema({
 });
 
 export default mongoose.models.User || model("User", UserSchema);
+
+// user saved plants in a DB, and user saved plants in a garden

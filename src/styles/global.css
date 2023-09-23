@@ -25,10 +25,9 @@
   padding: 50px;
   margin: 20px;
 }
-#landingSignUpBtn:hover{
-  background-color: #297B49;
+#landingSignUpBtn:hover {
+  background-color: #297b49;
   transition: 1000ms;
-
 }
 .databaseDiv {
   border-radius: 40px;
@@ -50,7 +49,18 @@
 /* Find My Plant */
 
 /* Explore Page */
-
+.exploreBody {
+  text-align: center;
+  padding: 50px;
+  margin: 0px 100px;
+}
+.exploreGrid {
+  margin-top: 50px;
+}
+.addBtn:hover {
+  background-color: #ddf3e6;
+  transition: 900ms;
+}
 /* Contact Page */
 
 /* About Us */
