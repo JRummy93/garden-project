@@ -3,20 +3,27 @@ import Head from "next/head";
 import PlantSearch from "@/components/PlantSearch";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import FetchTrefle from "../api/explore/index";
-import PlantCard from "@/components/PlantCard";
-import { Stack, Grid, Typography } from "@mui/material";
 
 export default function Explore() {
-  const [result, setResult] = useState([]);
-
-  useEffect(() => {
-    FetchTrefle().then((responseResult) => {
-      setResult(responseResult);
-    });
-  }, []);
-
-  return (
+    const [result, setResult] = useState([]);
+  
+    useEffect(() => {
+const fetchData = async () => {
+  try {
+    const response = await fetch("/api/explore");
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const data = await response.json();
+    setResult(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+  fetchData();
+    }, []);
+  
+     return (
     <>
       <Head>
         <title>Garden App</title>
