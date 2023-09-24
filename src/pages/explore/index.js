@@ -8,11 +8,20 @@ export default function Explore() {
     const [result, setResult] = useState([]);
   
     useEffect(() => {
-      fetch("/api/explore")
-      .then(res => res.json())
-      .then((responseResult) => {
-        setResult(responseResult);
-      });
+const fetchData = async () => {
+  try {
+    const response = await fetch("/api/explore");
+    if (!response.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    const data = await response.json();
+    setResult(data);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+};
+  
+      fetchData();
     }, []);
   
     return (

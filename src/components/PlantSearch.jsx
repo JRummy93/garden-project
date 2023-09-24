@@ -3,7 +3,9 @@ import { Button, Container, FormControlLabel, Switch, TextField } from '@mui/mat
 import WaterRequirementsCheckList from './CheckListWater';
 import LightRequiredCheckList from './CheckListLight';
 
+
 const PlantSearch = () => {
+  
   const [searchForm, setSearchForm] = useState({
     plant: '',
     edible: false,
@@ -21,7 +23,49 @@ const PlantSearch = () => {
   };
 
   const handleSubmit = () => {
+    const { plant, edible, toxic, temperature, plantSize } = searchForm;
 
+    const plantQ = (plant) => {
+      if (plant !== '') {
+        return `&q=${plant}`;
+      } else {
+        return '';
+      }
+    }
+
+    // const edibleQ = (edible) => {
+    //   if (edible) {
+    //     return `&edible=${edible}`;
+    //   } else {
+    //     return '';
+    //   }
+    // }
+
+    // const toxicQ = (toxic) => {
+    //   if (toxic) {
+    //     return `&toxic=${toxic}`;
+    //   } else {
+    //     return '';
+    //   }
+    // }
+
+    const newSearchQuery = plantQ(plant);
+    // router.push(`/api/explore/index?q=${newSearchQuery}`);
+    fetch(`/api/explore`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        newSearchQuery
+      })
+    })
+      .then(data => {
+        console.log('Success:', data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
   };
   
   return (
