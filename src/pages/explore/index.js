@@ -3,6 +3,8 @@ import Head from "next/head";
 import PlantSearch from "@/components/PlantSearch";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import { Typography, Grid } from "@mui/material";
+import PlantCard from "@/components/PlantCard";
 
 export default function Explore() {
     const [result, setResult] = useState([]);

@@ -11,6 +11,8 @@ export default authMiddleware({
     "/my-garden",
     "/find-my-plant",
     "/explore/[id]",
+    "/api/explore",
+    "/api/explore/[id]",
   ],
 });
 
