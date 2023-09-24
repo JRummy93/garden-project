@@ -20,7 +20,7 @@ const PlantSearch = () => {
       ...prevState,
       [name]: name === 'edible' || name === 'toxic' || name === 'temperature' || name === 'plantSize' ? checked : value
     }));
-  };
+  }; 
 
   const handleSubmit = () => {
     const { plant, edible, toxic, temperature, plantSize } = searchForm;
@@ -50,7 +50,7 @@ const PlantSearch = () => {
     // }
 
     const newSearchQuery = plantQ(plant);
-    // router.push(`/api/explore/index?q=${newSearchQuery}`);
+    
     fetch(`/api/explore`, {
       method: 'POST',
       headers: {
@@ -60,9 +60,6 @@ const PlantSearch = () => {
         newSearchQuery
       })
     })
-      .then(data => {
-        console.log('Success:', data);
-      })
       .catch(error => {
         console.error('Error:', error);
       });

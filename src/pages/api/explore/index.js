@@ -18,7 +18,6 @@ async function FetchTrefle(req, res) {
       const query = req.body.newSearchQuery;
       const response = await fetch(`https://trefle.io/api/v1/plants/search?${Trefle_API_KEY}${query}`);
       const data = await response.json();   
-      console.log(data);
       res.status(200).json(data);
       return data; 
     }

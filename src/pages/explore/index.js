@@ -4,6 +4,7 @@ import PlantSearch from '@/components/PlantSearch';
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
+
 export default function Explore() {
     const [result, setResult] = useState([]);
   
@@ -20,8 +21,7 @@ const fetchData = async () => {
     console.error("Error fetching data:", error);
   }
 };
-  
-      fetchData();
+  fetchData();
     }, []);
   
     return (
