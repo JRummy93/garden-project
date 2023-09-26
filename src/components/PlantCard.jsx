@@ -5,8 +5,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import { useRouter } from "next/router";
-
-import { useAuth, SignIn, SignInButton, SignUpButton } from "@clerk/nextjs";
+import { useAuth, SignUpButton } from "@clerk/nextjs";
+import AddToGarden from "./AddToGarden";
 
 const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
   const router = useRouter();
@@ -36,33 +36,7 @@ const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        {userId ? (
-          <Button
-            className="addBtn"
-            size="small"
-            sx={{
-              padding: "0.5rem 1rem",
-              fontFamily: "Montserrat, sans-serif",
-              color: "primary",
-            }}
-          >
-            Add to My Garden
-          </Button>
-        ) : (
-          <SignUpButton mode="modal">
-            <Button
-              className="addBtn"
-              size="small"
-              sx={{
-                padding: "0.5rem 1rem",
-                fontFamily: "Montserrat, sans-serif",
-                color: "primary",
-              }}
-            >
-              Add to My Garden
-            </Button>
-          </SignUpButton>
-        )}
+        <AddToGarden />
       </CardActions>
     </Card>
   );
