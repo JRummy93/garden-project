@@ -15,11 +15,16 @@ async function FetchTrefle(req, res) {
   }
   } else if (req.method === 'POST') {
     if (req.url === '/api/explore') {
-      const query = req.body.newSearchQuery;
-      const response = await fetch(`https://trefle.io/api/v1/plants/search?${Trefle_API_KEY}${query}`);
-      const data = await response.json();   
-      res.status(200).json(data);
-      return data; 
+      let query = req.body.newSearchQuery;
+      if (query.includes('q=') === true) { 
+        const response = await fetch(`https://trefle.io/api/v1/plants/search?${Trefle_API_KEY}${query}`);
+        const data = await response.json();   
+        res.status(200).json(data);
+      } else {
+        const response = await fetch(`https://trefle.io/api/v1/plants?${Trefle_API_KEY}${query}`);
+        const data = await response.json();
+        res.status(200).json(data);
+      }
     }
   } else {
     res.status(405).json({ message: 'Method not allowed' });
