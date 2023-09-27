@@ -7,7 +7,9 @@ import PlantCard from "@/components/PlantCard";
 import WaterRequirementsCheckList from '../../components/CheckListWater';
 import LightRequiredCheckList from '../../components/CheckListLight';
 
-
+console.log(window.location.href); 
+console.log(window.location.pathname);
+console.log(window.location.search);
 export default function Explore() {
     const [result, setResult] = useState([]);
     

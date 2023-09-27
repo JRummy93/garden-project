@@ -1,21 +1,33 @@
-// import FetchTrefle from ".";
+import React, { useEffect, useState } from "react";
+import Head from "next/head";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 
-// async function PlantByid(req, res) {
-//     const Trefle = await FetchTrefle();
-//     const { id } = req.query;
-//     const response = await fetch("http://localhost:3000");
-//     const result = await response.json();
+export default function ExploreID() {
+    
 
-//     const plant = await result.findById(id);
-//     if (!plant) {
-//         res.status(404).json({ error: "Plant id not found" });
-//     }
+const [result, setResult] = useState([]);
+    
+    useEffect(() => {
+const fetchData = async () => {
+    fetch(`/api/explore`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          plantID
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          setResult(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    };
+  fetchData();
+    }, []);
 
-//     if (req.method === "GET"){
-//         res.status(200).json(plant);
-//     } else {
-//         res.status(405).json({ error: "Method not supported" });
-//     }
-// }
-
-// export default PlantByid;
+}
