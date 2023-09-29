@@ -1,22 +1,30 @@
-const axios = require('axios');
 
-async function makePerenualAPIRequest(pageCount, key, ) {
-  try {
-    const response = await axios.get('https://trefle.io/api/v1/plants', {
-      params: {
-        page: pageCount,
-        token: 'u07N7SHuaI0uvGrVLkiI2zWl7PLb6ZgwGAfYE9SySnA'
-      }
-    });
-    
-    return response.data;
-    
-  } catch (error) {
-    console.error('Error making API request:', error);
-    throw error;
+
+const Trefle_API_KEY = 'token=u07N7SHuaI0uvGrVLkiI2zWl7PLb6ZgwGAfYE9SySnA';
+
+async function FetchTrefle(req, res) {
+  if (req.method === 'GET') {
+    if (req.url === '/api/explore/id') {
+      const response = await fetch(`https://trefle.io/api/v1/plants?${Trefle_API_KEY}`);
+      const data = await response.json();
+      res.status(200).json(data);
+  } else if (req.url === '/api/explore') {
+    const response = await fetch(`https://trefle.io/api/v1/plants?${Trefle_API_KEY}`);
+    const data = await response.json();
+    res.status(200).json(data);
   }
+  } else if (req.method === 'POST') {
+    if (req.url === '/api/explore') {
+      const query = req.body.newSearchQuery;
+      const response = await fetch(`https://trefle.io/api/v1/plants/search?${Trefle_API_KEY}${query}`);
+      const data = await response.json();   
+      res.status(200).json(data);
+      return data; 
+    }
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
+  }  
+  
 }
 
-
-export default makePerenualAPIRequest;
-
+export default FetchTrefle;

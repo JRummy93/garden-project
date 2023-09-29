@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import { Typography, Button, Stack, TextField, Rating } from "@mui/material";
 import React, { useEffect, useState } from "react";
 
@@ -86,6 +87,7 @@ const Contact = () => {
           </Button>
         </Stack>
       </div>
+    <Footer />
     </>
   );
 };
