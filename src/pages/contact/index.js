@@ -35,9 +35,10 @@ const Contact = () => {
       <div className="contact">
         <Stack className="textFieldStack" margin={6}>
           <Typography variant="h3" textAlign={"center"} color={"primary.dark"}>
-            {" "}
-            Contact Us{" "}
-          </Typography>
+          {" "}
+          Contact Us{" "}
+        </Typography>
+        <br />
           <Typography variant="h5" textAlign={"center"}>
             Have any ideas for our improvement or just want to tell us how great
             we are? We'd love to hear from you!{" "}
@@ -87,7 +88,7 @@ const Contact = () => {
           </Button>
         </Stack>
       </div>
-    <Footer />
+      <Footer />
     </>
   );
 };
