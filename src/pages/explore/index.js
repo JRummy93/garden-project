@@ -7,9 +7,9 @@ import PlantCard from "@/components/PlantCard";
 import WaterRequirementsCheckList from '../../components/CheckListWater';
 import LightRequiredCheckList from '../../components/CheckListLight';
 
-console.log(window.location.href); 
-console.log(window.location.pathname);
-console.log(window.location.search);
+// console.log(window.location.href); 
+// console.log(window.location.pathname);
+// console.log(window.location.search);
 export default function Explore() {
     const [result, setResult] = useState([]);
     
@@ -69,8 +69,8 @@ const fetchData = async () => {
         }
       }
     
-      console.log(water)
-      console.log(light)
+      // console.log(water)
+      // console.log(light)
 
       const newSearchQuery = plantQ(plant) + edibleQ(edible) + toxicQ(toxic);
       console.log(newSearchQuery);
