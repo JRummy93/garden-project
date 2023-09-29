@@ -2,8 +2,7 @@ import dbConnect from "../../../server/db";
 import Review from "../../../server/Review";
 
 export default async function handler(req, res) {
-//   const connection = await dbConnect("reviews");
-await dbConnect();
+  await dbConnect();
 
   if (req.method === "POST") {
     try {

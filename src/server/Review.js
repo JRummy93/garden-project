@@ -1,4 +1,3 @@
-import { Schema, model } from "mongoose";
 import mongoose from "mongoose";
 
 const ReviewSchema = new mongoose.Schema({
@@ -9,4 +8,4 @@ const ReviewSchema = new mongoose.Schema({
   comment: { type: String },
 });
 
-export default mongoose.models.Review || model("Review", ReviewSchema, Reviews);
+export default mongoose.models.Review || mongoose.model("Review", ReviewSchema, "Reviews");
