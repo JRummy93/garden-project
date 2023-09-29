@@ -13,6 +13,7 @@ export default authMiddleware({
     "/explore/[id]",
     "/api/explore",
     "/api/explore/[id]",
+    "/api/contact",
   ],
 });
 
