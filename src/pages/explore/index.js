@@ -262,7 +262,16 @@ export default function Explore() {
                 />
               </Box>
             </Container>
-            <Button variant="contained" onClick={handleSubmit} padding="20px">
+            <Button
+              variant="contained"
+              onClick={handleSubmit}
+              sx={{
+                my: 2,
+                color: "white",
+                fontFamily: "Montserrat, sans-serif",
+                padding: "10px",
+              }}
+            >
               Search
             </Button>
           </Container>
@@ -306,13 +315,12 @@ export default function Explore() {
               my: 2,
               color: "white",
               fontFamily: "Montserrat, sans-serif",
-              padding: "10px"
+              padding: "10px",
             }}
           >
             Next Page
           </Button>
         </div>
-        
       </main>
       <Footer />
     </>
