@@ -61,6 +61,14 @@
   background-color: #ddf3e6;
   transition: 900ms;
 }
+/* Id Page */
+.bar {
+  border: #215a23 solid 2px;
+  width: 700px;
+}
+.idDetailsDiv {
+  padding: 50px;
+}
 /* Contact Page */
 .contact {
   margin: 20px 100px;
