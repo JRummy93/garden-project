@@ -1,33 +1,12 @@
-import React, { useEffect, useState } from "react";
-import Head from "next/head";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
+const Trefle_API_KEY = 'token=u07N7SHuaI0uvGrVLkiI2zWl7PLb6ZgwGAfYE9SySnA';
 
-export default function ExploreID() {
-    
-
-const [result, setResult] = useState([]);
-    
-    useEffect(() => {
-const fetchData = async () => {
-    fetch(`/api/explore`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          plantID
-        })
-      })
-        .then(response => response.json())
-        .then(data => {
-          setResult(data);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
-    };
-  fetchData();
-    }, []);
-
+export default async function fetchPlantById(req, res) {
+  if (req.url === `/api/explore/${req.query.id}` && req.method === 'POST') {
+    const id  = req.query.id;
+    const response = await fetch(`https://trefle.io/api/v1/plants/${id}?${Trefle_API_KEY}`);
+    const data = await response.json();
+    res.status(200).json(data);
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
+  }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
+import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Typography, Grid, Button, Container, FormControlLabel, Switch, TextField, Box } from "@mui/material";
@@ -7,9 +8,6 @@ import PlantCard from "@/components/PlantCard";
 import WaterRequirementsCheckList from '../../components/CheckListWater';
 import LightRequiredCheckList from '../../components/CheckListLight';
 
-// console.log(window.location.href); 
-// console.log(window.location.pathname);
-// console.log(window.location.search);
 export default function Explore() {
     const [result, setResult] = useState([]);
     
@@ -133,12 +131,14 @@ const fetchData = async () => {
             {Array.isArray(result.data) && result.data.length > 0 ? (
               result.data.map((data) => (
                 <Grid item xs={12} md={6} lg={4} key={data.id}>
-                  <PlantCard
-                    common_name={data.common_name}
-                    scientific_name={data.scientific_name}
-                    image_url={data.image_url}
-                    key={data.id}
-                  />
+                  <Link href={{ pathname: `/explore/${data.id}`, query: { id: data.id } }}>
+                      <PlantCard
+                        common_name={data.common_name}
+                        scientific_name={data.scientific_name}
+                        image_url={data.image_url}
+                        key={data.id}
+                      />
+                  </Link>
                 </Grid>
               ))
             ) : (
