@@ -3,114 +3,129 @@ import Head from "next/head";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { Typography, Grid, Button, Container, FormControlLabel, Switch, TextField, Box } from "@mui/material";
+import {
+  Typography,
+  Grid,
+  Button,
+  Container,
+  FormControlLabel,
+  Switch,
+  TextField,
+  Box,
+} from "@mui/material";
 import PlantCard from "@/components/PlantCard";
-import WaterRequirementsCheckList from '../../components/CheckListWater';
-import LightRequiredCheckList from '../../components/CheckListLight';
+import WaterRequirementsCheckList from "../../components/CheckListWater";
+import LightRequiredCheckList from "../../components/CheckListLight";
 
 export default function Explore() {
-    const [result, setResult] = useState([]);
-    
-    useEffect(() => {
-const fetchData = async () => {
-  try {
-    const response = await fetch("/api/explore");
-    if (!response.ok) {
-      throw new Error("Failed to fetch data");
-    }
-    const data = await response.json();
-    setResult(data);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-};
-  fetchData();
-    }, []);
+  const [result, setResult] = useState([]);
 
-    const [searchForm, setSearchForm] = useState({
-      plant: '',
-      edible: false,
-      toxic: false,
-      // water: [],
-      // light: [],
-      temperature: false,
-      plantSize: false
-    });
-    const handleInputChange = (e) => {
-      const { name, value, checked } = e.target;
-      setSearchForm((prevState) => ({
-        ...prevState,
-        [name]: name === 'edible' || name === 'toxic' || name === 'temperature' || name === 'plantSize' ? checked : value
-      }));
-    }; 
-    const handleSubmit = () => {
-      const { plant, edible, toxic, temperature, plantSize } = searchForm;
-      const plantQ = (plant) => {
-        if (plant !== '') {
-          return `&q=${plant}`;
-        } else {
-          return '';
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/explore");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
         }
+        const data = await response.json();
+        setResult(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-      const edibleQ = (edible) => {
-        if (edible) {
-          return `&filter[edible]=${edible}`;
-        } else {
-          return '';
-        }
-      }
-      const toxicQ = (toxic) => {
-        if (toxic) {
-          return `&filter_not[toxicity]=false`;
-        } else {
-          return '';
-        }
-      }
-    
-      // console.log(water)
-      // console.log(light)
-
-      const newSearchQuery = plantQ(plant) + edibleQ(edible) + toxicQ(toxic);
-      
-      fetch(`/api/explore`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          newSearchQuery
-        })
-      })
-        .then(response => response.json())
-        .then(data => {
-          setResult(data);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
     };
-    
-    const handleNextPage = () => {
-      const nextPage = result.links.next;
-      fetch(`/api/explore`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nextPage
-        })
+    fetchData();
+  }, []);
+
+  const [searchForm, setSearchForm] = useState({
+    plant: "",
+    edible: false,
+    toxic: false,
+    // water: [],
+    // light: [],
+    temperature: false,
+    plantSize: false,
+  });
+  const handleInputChange = (e) => {
+    const { name, value, checked } = e.target;
+    setSearchForm((prevState) => ({
+      ...prevState,
+      [name]:
+        name === "edible" ||
+        name === "toxic" ||
+        name === "temperature" ||
+        name === "plantSize"
+          ? checked
+          : value,
+    }));
+  };
+  const handleSubmit = () => {
+    const { plant, edible, toxic, temperature, plantSize } = searchForm;
+    const plantQ = (plant) => {
+      if (plant !== "") {
+        return `&q=${plant}`;
+      } else {
+        return "";
+      }
+    };
+    const edibleQ = (edible) => {
+      if (edible) {
+        return `&filter[edible]=${edible}`;
+      } else {
+        return "";
+      }
+    };
+    const toxicQ = (toxic) => {
+      if (toxic) {
+        return `&filter_not[toxicity]=false`;
+      } else {
+        return "";
+      }
+    };
+
+    // console.log(water)
+    // console.log(light)
+
+    const newSearchQuery = plantQ(plant) + edibleQ(edible) + toxicQ(toxic);
+
+    fetch(`/api/explore`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        newSearchQuery,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setResult(data);
       })
-        .then(response => response.json())
-        .then(data => {
-          setResult(data);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        })
-    }
-  
-     return (
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  const handleNextPage = () => {
+    const nextPage = result.links.next;
+    fetch(`/api/explore`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nextPage,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setResult(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  return (
     <>
       <Head>
         <title>Garden App</title>
@@ -121,24 +136,135 @@ const fetchData = async () => {
       <main>
         <Navbar />
         <div className="exploreBody">
-          <Typography variant="h2" color={"primary.dark"}>Explore</Typography>
-          <Container style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexDirection: 'column', padding: '20px', flexWrap: 'wrap' }}>
-          <TextField id="outlined-basic" label="Search plant by name" variant="outlined" style={{display: 'flex', flex: '0 0 50%', minWidth: '300px', justifyContent: 'space-around' }} name="plant" value={searchForm.plant} onChange={handleInputChange} />
-            <Container spacing={2} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexWrap: 'wrap' }}>
-              <Box style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-around', flexDirection: 'column', flex: '0 0 5%', border: '2px #80AB92 solid', borderRadius: '25px', padding: '10px' }}>
-                <FormControlLabel control={<Switch />} label="Edible" name="edible" checked={searchForm.edible} onChange={handleInputChange} />
-                <FormControlLabel control={<Switch />} label="Toxic" name="toxic" checked={searchForm.toxic} onChange={handleInputChange} />
+          <Typography variant="h2" color={"primary.dark"}>
+            Explore
+          </Typography>
+          <Container
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              flexDirection: "column",
+              padding: "20px",
+              flexWrap: "wrap",
+            }}
+          >
+            <TextField
+              id="outlined-basic"
+              label="Search plant by name"
+              variant="outlined"
+              style={{
+                display: "flex",
+                flex: "0 0 50%",
+                minWidth: "300px",
+                justifyContent: "space-around",
+              }}
+              name="plant"
+              value={searchForm.plant}
+              onChange={handleInputChange}
+            />
+            <Container
+              spacing={2}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-around",
+                flexWrap: "wrap",
+              }}
+            >
+              <Box
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  justifyContent: "space-around",
+                  flexDirection: "column",
+                  flex: "0 0 5%",
+                  border: "2px #80AB92 solid",
+                  borderRadius: "25px",
+                  padding: "10px",
+                }}
+              >
+                <FormControlLabel
+                  control={<Switch />}
+                  label="Edible"
+                  name="edible"
+                  checked={searchForm.edible}
+                  onChange={handleInputChange}
+                />
+                <FormControlLabel
+                  control={<Switch />}
+                  label="Toxic"
+                  name="toxic"
+                  checked={searchForm.toxic}
+                  onChange={handleInputChange}
+                />
               </Box>
-              <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', flex: '0 0 5%' }}>
-                <FormControlLabel control={<WaterRequirementsCheckList />} name="waterRequirements" checked={searchForm.water} onChange={handleInputChange} style={{ flex: '0 0 15%', border: '2px #80AB92 solid', borderRadius: '25px', margin: '10px' }} />
-                <FormControlLabel control={<LightRequiredCheckList />} name="lightRequirements" checked={searchForm.light} onChange={handleInputChange} style={{ flex: '0 0 15%', border: '2px #80AB92 solid', borderRadius: '25px', margin: '10px' }} />
+              <Box
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  flex: "0 0 5%",
+                }}
+              >
+                <FormControlLabel
+                  control={<WaterRequirementsCheckList />}
+                  name="waterRequirements"
+                  checked={searchForm.water}
+                  onChange={handleInputChange}
+                  style={{
+                    flex: "0 0 15%",
+                    border: "2px #80AB92 solid",
+                    borderRadius: "25px",
+                    margin: "10px",
+                  }}
+                />
+                <FormControlLabel
+                  control={<LightRequiredCheckList />}
+                  name="lightRequirements"
+                  checked={searchForm.light}
+                  onChange={handleInputChange}
+                  style={{
+                    flex: "0 0 15%",
+                    border: "2px #80AB92 solid",
+                    borderRadius: "25px",
+                    margin: "10px",
+                  }}
+                />
               </Box>
-              <Box style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-around', flexDirection: 'column', flex: '0 0 5%',border: '2px #80AB92 solid', borderRadius: '25px', padding: '10px' }}>
-                <FormControlLabel control={<Switch />} label="Temperature" name="temperature" checked={searchForm.temperature} onChange={handleInputChange} style={{ flex: '0 0 15%' }} />
-                <FormControlLabel control={<Switch />} label="Plant Size" name="plantSize" checked={searchForm.plantSize} onChange={handleInputChange} style={{ flex: '0 0 15%' }} />
+              <Box
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-around",
+                  flexDirection: "column",
+                  flex: "0 0 5%",
+                  border: "2px #80AB92 solid",
+                  borderRadius: "25px",
+                  padding: "10px",
+                }}
+              >
+                <FormControlLabel
+                  control={<Switch />}
+                  label="Temperature"
+                  name="temperature"
+                  checked={searchForm.temperature}
+                  onChange={handleInputChange}
+                  style={{ flex: "0 0 15%" }}
+                />
+                <FormControlLabel
+                  control={<Switch />}
+                  label="Plant Size"
+                  name="plantSize"
+                  checked={searchForm.plantSize}
+                  onChange={handleInputChange}
+                  style={{ flex: "0 0 15%" }}
+                />
               </Box>
             </Container>
-            <Button variant="contained" onClick={handleSubmit} padding="20px">Search</Button>
+            <Button variant="contained" onClick={handleSubmit} padding="20px">
+              Search
+            </Button>
           </Container>
           <Grid
             container
@@ -151,22 +277,42 @@ const fetchData = async () => {
             {Array.isArray(result.data) && result.data.length > 0 ? (
               result.data.map((data) => (
                 <Grid item xs={12} md={6} lg={4} key={data.id}>
-                  <Link href={{ pathname: `/explore/${data.id}`, query: { id: data.id } }}>
-                      <PlantCard
-                        common_name={data.common_name}
-                        scientific_name={data.scientific_name}
-                        image_url={data.image_url}
-                        key={data.id}
-                      />
+                  <Link
+                    href={{
+                      pathname: `/explore/${data.id}`,
+                      query: { id: data.id },
+                    }}
+                  >
+                    <PlantCard
+                      common_name={data.common_name}
+                      scientific_name={data.scientific_name}
+                      image_url={data.image_url}
+                      key={data.id}
+                    />
                   </Link>
                 </Grid>
               ))
             ) : (
-              <Typography variant="h3" color={"primary.dark"}>Loading...</Typography>
+              <Typography variant="h3" color={"primary.dark"}>
+                Loading...
+              </Typography>
             )}
           </Grid>
-            <Button variant="contained" onClick={handleNextPage} disabled={!result?.links?.next} padding="20px">Next Page</Button>         
+          <Button
+            variant="contained"
+            onClick={handleNextPage}
+            disabled={!result?.links?.next}
+            sx={{
+              my: 2,
+              color: "white",
+              fontFamily: "Montserrat, sans-serif",
+              padding: "10px"
+            }}
+          >
+            Next Page
+          </Button>
         </div>
+        
       </main>
       <Footer />
     </>
