@@ -8,16 +8,15 @@ async function FetchTrefle(req, res) {
     res.status(200).json(data);
   }
   } else if (req.method === 'POST') {
-    if (req.url === '/api/explore' && req.body.nextPage.includes('page=') === true) {
-      const nextPage = req.body.nextPage;
-      const response = await fetch(`https://trefle.io${nextPage}&${Trefle_API_KEY}`);
-      console.log(response);
-      const data = await response.json();
-      res.status(200).json(data);
-    }
     if (req.url === '/api/explore') {
-      let query = req.body.newSearchQuery;
-      if (query.includes('q=') === true) { 
+      if (req.body.nextPage !== undefined) {
+        const nextPage = req.body.nextPage;
+        const response = await fetch(`https://trefle.io${nextPage}&${Trefle_API_KEY}`);
+        console.log(response);
+        const data = await response.json();
+        res.status(200).json(data);
+      } else if (req.body.newSearchQuery.includes('q=') === true) {
+        let query = req.body.newSearchQuery;
         const response = await fetch(`https://trefle.io/api/v1/plants/search?${Trefle_API_KEY}${query}`);
         const data = await response.json();   
         res.status(200).json(data);
