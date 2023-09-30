@@ -71,7 +71,7 @@ const fetchData = async () => {
       // console.log(light)
 
       const newSearchQuery = plantQ(plant) + edibleQ(edible) + toxicQ(toxic);
-      console.log(newSearchQuery);
+      
       fetch(`/api/explore`, {
         method: 'POST',
         headers: {
@@ -89,7 +89,27 @@ const fetchData = async () => {
           console.error('Error:', error);
         });
     };
-
+    
+    const handleNextPage = () => {
+      const nextPage = result.links.next;
+      fetch(`/api/explore`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nextPage
+        })
+      })
+        .then(response => response.json())
+        .then(data => {
+          setResult(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        })
+    }
+  
      return (
     <>
       <Head>
@@ -145,6 +165,7 @@ const fetchData = async () => {
               <Typography variant="h3" color={"primary.dark"}>Loading...</Typography>
             )}
           </Grid>
+            <Button variant="contained" onClick={handleNextPage} disabled={!result?.links?.next} padding="20px">Next Page</Button>         
         </div>
       </main>
       <Footer />
