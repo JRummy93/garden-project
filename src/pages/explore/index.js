@@ -291,6 +291,7 @@ export default function Explore() {
                       pathname: `/explore/${data.id}`,
                       query: { id: data.id },
                     }}
+                    className="exploreLink"
                   >
                     <PlantCard
                       common_name={data.common_name}
