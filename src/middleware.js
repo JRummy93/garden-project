@@ -13,13 +13,14 @@ export default authMiddleware({
     "/explore/[id]",
     "/api/explore",
     "/api/explore/[id]",
-    "/explore/undefined",
   ],
   ignoredRoutes: [
     "/explore",
     "/api/explore",
     "/explore/:path*",
     "/api/explore/:path*",
+    "/api/contact",
+    "/explore/undefined",
   ],
 });
 
