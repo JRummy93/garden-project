@@ -1,21 +1,12 @@
-// import FetchTrefle from ".";
+const Trefle_API_KEY = 'token=u07N7SHuaI0uvGrVLkiI2zWl7PLb6ZgwGAfYE9SySnA';
 
-// async function PlantByid(req, res) {
-//     const Trefle = await FetchTrefle();
-//     const { id } = req.query;
-//     const response = await fetch("http://localhost:3000");
-//     const result = await response.json();
-
-//     const plant = await result.findById(id);
-//     if (!plant) {
-//         res.status(404).json({ error: "Plant id not found" });
-//     }
-
-//     if (req.method === "GET"){
-//         res.status(200).json(plant);
-//     } else {
-//         res.status(405).json({ error: "Method not supported" });
-//     }
-// }
-
-// export default PlantByid;
+export default async function fetchPlantById(req, res) {
+  if (req.url === `/api/explore/${req.query.id}` && req.method === 'POST') {
+    const id  = req.query.id;
+    const response = await fetch(`https://trefle.io/api/v1/plants/${id}?${Trefle_API_KEY}`);
+    const data = await response.json();
+    res.status(200).json(data);
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
+  }
+}

@@ -35,7 +35,7 @@ const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      {/* <CardActions>
         {userId ? (
           <Button
             className="addBtn"
@@ -63,7 +63,7 @@ const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
             </Button>
           </SignUpButton>
         )}
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 };
