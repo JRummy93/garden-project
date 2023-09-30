@@ -30,9 +30,6 @@ const PlantCard = ({ common_name, scientific_name, image_url, id }) => {
           <Typography gutterBottom variant="h5" component="div">
             {common_name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {scientific_name} ID: {id}
-          </Typography>
         </CardContent>
       </CardActionArea>
       {/* <CardActions>
