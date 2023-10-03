@@ -54,7 +54,7 @@ const PlantDetailPage = () => {
                 ></img>
                 <div className="idDetailsDiv">
                   <Typography variant="h5">
-                    <u>Family:</u> {Plant.data.main_species.family_common_name}
+                    <u>Family:</u> {Plant.data.main_species.family_common_name ? Plant.data.main_species.family_common_name : "Not Available"}
                   </Typography>
                   <Typography variant="h5">
                     <u>Genus:</u> {Plant.data.main_species.genus}

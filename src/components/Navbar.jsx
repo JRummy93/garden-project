@@ -121,14 +121,14 @@ const Navbar = () => {
                   router.push("/find-my-plant");
                 }}
               >
-                <Typography textAlign="center">Find My Plant</Typography>
+                {/* <Typography textAlign="center">Find My Plant</Typography>
               </MenuItem>
               <MenuItem
                 onClick={() => {
                   handleCloseNavMenu;
                   router.push("/contact");
                 }}
-              >
+              > */}
                 <Typography textAlign="center">Contact Us</Typography>
               </MenuItem>
               <MenuItem
@@ -188,7 +188,7 @@ const Navbar = () => {
             >
               My Garden
             </Button>
-            <Button
+            {/* <Button
               onClick={() => {
                 setAnchorElNav(null);
                 router.push("/find-my-plant");
@@ -200,7 +200,7 @@ const Navbar = () => {
               }}
             >
               Find My Plant
-            </Button>
+            </Button> */}
             </SignedIn>
             <Button
               onClick={() => {

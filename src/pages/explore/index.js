@@ -140,24 +140,28 @@ export default function Explore() {
             Explore
           </Typography>
           <Container
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+            flexDirection="row"
+            padding="20px"
+            flexWrap="wrap"
+            spacing={2}
             style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              flexDirection: "column",
               padding: "20px",
-              flexWrap: "wrap",
             }}
           >
             <TextField
               id="outlined-basic"
               label="Search plant by name"
               variant="outlined"
+              display="flex"
+              justifyContent="space-around"
               style={{
-                display: "flex",
                 flex: "0 0 50%",
-                minWidth: "300px",
-                justifyContent: "space-around",
+                width: "50%",
+                minWidth: "300px", 
+                padding: "10px",              
               }}
               name="plant"
               value={searchForm.plant}
@@ -199,7 +203,7 @@ export default function Explore() {
                   onChange={handleInputChange}
                 />
               </Box>
-              <Box
+              {/* <Box
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -231,8 +235,8 @@ export default function Explore() {
                     margin: "10px",
                   }}
                 />
-              </Box>
-              <Box
+              </Box> */}
+              {/* <Box
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -260,7 +264,7 @@ export default function Explore() {
                   onChange={handleInputChange}
                   style={{ flex: "0 0 15%" }}
                 />
-              </Box>
+              </Box> */}
             </Container>
             <Button
               variant="contained"
