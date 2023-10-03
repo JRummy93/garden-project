@@ -4,10 +4,8 @@
 </style>;
 import * as React from "react";
 import {
-  Tooltip,
   MenuItem,
   Button,
-  Avatar,
   Container,
   Menu,
   Typography,
