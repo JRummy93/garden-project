@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { Container, Stack, Typography, Box } from "@mui/material";
+import { Image } from "next/image";
 
 const PlantDetailPage = () => {
   const [Plant, setPlant] = useState({});
@@ -47,11 +48,11 @@ const PlantDetailPage = () => {
                 ID#: {Plant.data.id}
               </Typography>
               <Stack direction={"row"}>
-                <img
+                <Image
                   src={Plant.data.image_url}
                   alt="default plant image"
                   style={{ width: "50%", height: "50%" }}
-                ></img>
+                ></Image>
                 <div className="idDetailsDiv">
                   <Typography variant="h5">
                     <u>Family:</u> {Plant.data.main_species.family_common_name ? Plant.data.main_species.family_common_name : "Not Available"}

@@ -283,9 +283,7 @@ subspecies: [],
     },
   ],
 },
-meta: {
-  last_modified: String,
-}
+
 );
 
 const GardenPlant = mongoose.model('GardenPlant', plantSchema);

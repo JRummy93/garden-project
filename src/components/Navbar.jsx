@@ -1,6 +1,6 @@
 <style>
   @import
-  url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+  url(`https://fonts.googleapis.com/css2?family=Montserrat&display=swap`);
 </style>;
 import * as React from "react";
 import {
