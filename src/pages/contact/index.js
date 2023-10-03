@@ -40,8 +40,8 @@ const Contact = () => {
         </Typography>
         <br />
           <Typography variant="h5" textAlign={"center"}>
-            `Have any ideas for our improvement or just want to tell us how great
-            we are? We&apos;d love to hear from you!{" "}`
+            Have any ideas for our improvement or just want to tell us how great
+            we are? We&apos;d love to hear from you!{" "}
           </Typography>
           <TextField
             variant="filled"

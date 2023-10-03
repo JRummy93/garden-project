@@ -140,26 +140,23 @@ export default function Explore() {
             Explore
           </Typography>
           <Container
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            flexDirection="row"
-            padding="20px"
-            flexWrap="wrap"
+            
             spacing={2}
             style={{
               padding: "20px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "row",
+              flexWrap: "wrap",
             }}
           >
             <TextField
               id="outlined-basic"
               label="Search plant by name"
-              variant="outlined"
-              display="flex"
-              justifyContent="space-around"
+              variant="outlined"          
               style={{
-                flex: "0 0 50%",
-                width: "50%",
+                display: "flex",
                 minWidth: "300px", 
                 padding: "10px",              
               }}
@@ -179,7 +176,7 @@ export default function Explore() {
               <Box
                 style={{
                   display: "flex",
-                  alignItems: "flex-start",
+                  alignItems: "center",
                   justifyContent: "space-around",
                   flexDirection: "column",
                   flex: "0 0 5%",
@@ -195,13 +192,13 @@ export default function Explore() {
                   checked={searchForm.edible}
                   onChange={handleInputChange}
                 />
-                <FormControlLabel
+                {/* <FormControlLabel
                   control={<Switch />}
                   label="Toxic"
                   name="toxic"
                   checked={searchForm.toxic}
                   onChange={handleInputChange}
-                />
+                /> */}
               </Box>
               {/* <Box
                 style={{

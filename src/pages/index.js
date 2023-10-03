@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import { SignUpButton } from "@clerk/nextjs";
 import { Image } from "next/image";
 
+
 export default function Home() {
   const router = useRouter();
 
@@ -28,8 +29,8 @@ export default function Home() {
         >
           <Grid item md={12} lg={6}>
             <div className="LogoText">
-              <Image
-                src="/GroWiseLogoCropped.png"
+              <img
+                src="../GroWiseLogoCropped.png"
                 alt="GroWise Logo"
                 id="LandingLogo"
               />
@@ -44,7 +45,7 @@ export default function Home() {
             </div>
           </Grid>
           <Grid item md={12} lg={4}>
-            <Image
+            <img
               src="https://images.unsplash.com/photo-1587334274328-64186a80aeee?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z3JlZW4lMjBsZWFmfGVufDB8fDB8fHww&auto=format&fit=crop&w=500&q=60"
               id="sideImg"
               alt="leaf"
@@ -72,7 +73,7 @@ export default function Home() {
             </div>
           </Grid>
           <Grid item md={12} lg={6}>
-            <Image
+            <img
               src="https://images.unsplash.com/photo-1609142621730-db3293839541?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTE5fHxwbGFudHN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
               className="landingPlant"
               alt="potted plant"
