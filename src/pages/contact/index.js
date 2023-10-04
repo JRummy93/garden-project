@@ -33,7 +33,7 @@ const Contact = () => {
     <>
       <Navbar />
       <div className="contact">
-        <Stack className="textFieldStack" margin={6}>
+        <Stack className="textFieldStack" margin={6} display={"flex"} justifyContent={"center"}>
           <Typography variant="h3" textAlign={"center"} color={"primary.dark"}>
           {" "}
           Contact Us{" "}
